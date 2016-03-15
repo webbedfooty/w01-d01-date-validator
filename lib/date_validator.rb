@@ -4,7 +4,7 @@
 # or is not valid (i.e. does not exist on the calendar).
 #
 # Here are the rules:
-# test test
+
 # + The month must be between 1 and 12 (inclusive)
 # + The year must be between 1880 and 2280 (inclusive)
 # + The day must exist within the month
@@ -16,8 +16,28 @@
 
 def valid_date?(month, day, year)
   #write your method here
-  return true
+if month <= 12
+  month_chk = true
 end
 
-# added
-# more added
+if month = 1 || month = 3 || month = 5 || month = 7 || month = || 8 || month = 10 || month = 12
+  month_days = 31
+elsif month = 4 || month = 6 || month = 9 || month = 11
+  month_days = 30
+elsif month = 2
+  month = 'february'
+end
+
+if day <= month_days
+  day_chk = true
+end
+
+if year >= 1880 || year <= 2280
+  year_chk = true
+end
+
+if month_chk = true && day_chk = true && year_chk = true
+
+  
+  return true
+end
