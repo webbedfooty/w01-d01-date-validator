@@ -16,17 +16,17 @@
 
 def valid_date?(month, day, year)
 
-  if year%4 == 0 && year%100 != 0 || year%400 == 0
+  if year%4 == 0 && year%100 != 0 && year%400 == 0
     february = 29
   else
     february = 28
   end
 
-  if year >= 1880 || year <= 2280
+  if year >= 1880 && year <= 2280
     year_chk = true
   end
 
-if month <= 12
+if month >= 1 && month <= 12
   month_chk = true
 end
 
@@ -38,7 +38,7 @@ else month = 2
   month_days = february
 end
 
-if day >= 1 || day <= month_days
+if day >= 1 && day <= month_days
   day_chk = true
 end
 
