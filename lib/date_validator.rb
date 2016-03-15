@@ -19,9 +19,8 @@ def valid_date?(month, day, year)
     month_days = 31
   elsif month = 4 || month = 6 || month = 9 || month = 11
     month_days = 30
-  elsif month = 2
+  else month = 2
     month_days = february
-  else
   end
   day_chk = false
   if day >= 1 && day <= month_days
