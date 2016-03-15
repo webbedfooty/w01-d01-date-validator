@@ -38,7 +38,7 @@ else month = 2
   month_days = february
 end
 
-if day <= month_days
+if day >= 1 || day <= month_days
   day_chk = true
 end
 
