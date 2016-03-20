@@ -8,10 +8,13 @@
 # Step 4: determine the number of days based on the month and year submitted
 # Step 5: determine if the day submitted falls within that determined range
 #######################################
+
+# require 'pry'
+
 def valid_date?(month, day, year)
   year_valid(year) &&
   month_valid(month) &&
-  day_valid(day, month, year)
+  day_valid(day, month_days)
 end
 #######################################
 # Step 1: determine if the YEAR falls within the range 1880-2280, inclusive
@@ -38,11 +41,12 @@ end
 # + FEBRUARY: integer representation for the number of days in February
 #
 # Returns 29 if it is LEAP YEAR; otherwise 28 if not a LEAP YEAR
-def february(year)
+def determine_february(year)
   if year % 4 == 0 && year % 100 != 0 || year % 400 == 0
     february = 29
   else
     february = 28
+  end
 end
 #######################################
 # Step 4: determine the number of days based on the month and year submitted
@@ -51,7 +55,7 @@ end
 #
 # Returns a value for 'month_days' based on the MONTH and YEAR provided;
 # the value for FEBRUARY is determined on whether or not it is a LEAP YEAR
-def month_days(month, year)
+def determine_month_days(month, year)
   month_days = {
     1 => 31,
     2 => february(year),
@@ -79,3 +83,4 @@ end
 def day_valid(day, month_days)
   day >= 1 && day <= month_days
 end
+# binding.pry
