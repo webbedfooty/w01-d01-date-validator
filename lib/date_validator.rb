@@ -9,12 +9,10 @@
 # Step 5: determine if the day submitted falls within that determined range
 #######################################
 
-# require 'pry'
-
 def valid_date?(month, day, year)
   year_valid(year) &&
   month_valid(month) &&
-  day_valid(day, month_days)
+  day_valid(day, month, year)
 end
 #######################################
 # Step 1: determine if the YEAR falls within the range 1880-2280, inclusive
@@ -58,7 +56,7 @@ end
 def determine_month_days(month, year)
   month_days = {
     1 => 31,
-    2 => february(year),
+    2 => determine_february(year),
     3 => 31,
     4 => 30,
     5 => 31,
@@ -80,7 +78,6 @@ end
 # + DAY: integer representation of the day (e.g. 4 = 4th)
 #
 # Returns true if DAY is valid; otherwise returns false
-def day_valid(day, month_days)
-  day >= 1 && day <= month_days
+def day_valid(day, month, year)
+  day >= 1 && day <= determine_month_days(month, year)
 end
-# binding.pry
