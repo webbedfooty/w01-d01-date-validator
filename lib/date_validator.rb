@@ -27,19 +27,19 @@ end
 
 # Step : determine the number of days based on the month and year submitted
 
-def month_days (month, year)
+def month_days(month, year)
   month_days = {
-    1 => 31
-    2 => february(year)
-    3 => 31
-    4 => 30
-    5 => 31
-    6 => 30
-    7 => 31
-    8 => 31
-    9 => 30
-    10 => 31
-    11 => 30
+    1 => 31,
+    2 => february(year),
+    3 => 31,
+    4 => 30,
+    5 => 31,
+    6 => 30,
+    7 => 31,
+    8 => 31,
+    9 => 30,
+    10 => 31,
+    11 => 30,
     12 => 31
   }
   month_days.default = 0
