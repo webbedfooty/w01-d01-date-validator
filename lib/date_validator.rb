@@ -10,7 +10,7 @@
 # Step 6: determine if all 3 factors are true, given the set of parameters
 
 def valid_date?(month, day, year)
-
+valid_date = true
 # Step 1: determine if the year is a leap year,
 #   and if so, assign the number of days for February at 29
   february = 28
@@ -20,16 +20,16 @@ def valid_date?(month, day, year)
   end
 
 # Step 2: determine if the year falls within the range 1880-2280, inclusive
-  year_chk = false
-  if year >= 1880 && year <= 2280
-    year_chk = true
+#  year_chk = false
+  if year <= 1880 || year >= 2280
+    valid_date = false
   else
   end
 
 # Step 3: determine if the month is a valid entry
-  month_chk = false
-  if month >= 1 && month <= 12
-    month_chk = true
+#  month_chk = false
+  if month <= 1 || month => 12
+    valid_date = false
   else
   end
 
@@ -44,15 +44,17 @@ def valid_date?(month, day, year)
   end
 
 # Step 5: determine if the day submitted falls within that determined range
-  day_chk = false
-  if day >= 1 && day <= month_days
-    day_chk = true
+#  day_chk = false
+  if day <= 1 || day >= month_days
+      valid_date = false
   else
   end
 
 # Step 6: determine if all 3 factors are true, given the set of parameters
-  if month_chk == true && day_chk == true && year_chk == true
-    return true
-  else
-  end
+#  if month_chk == true && day_chk == true && year_chk == true
+#    return true
+#  else
+#  end
+valid_date
+
 end
