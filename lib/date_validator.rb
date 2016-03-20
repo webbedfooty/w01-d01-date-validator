@@ -76,6 +76,6 @@ end
 # + DAY: integer representation of the day (e.g. 4 = 4th)
 #
 # Returns true if DAY is valid; otherwise returns false
-def day_valid(day, month_days, year)
+def day_valid(day, month_days)
   day >= 1 && day <= month_days
 end
