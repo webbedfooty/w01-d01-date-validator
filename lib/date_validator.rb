@@ -1,13 +1,12 @@
 # Given a month, day, and year, validate whether or not
 # the resulting date is within a given set of parameters.
 #
-# Step 1: determine if the year is a leap year
+# Step 1: determine if the year falls between the range 1880-2280, inclusive
+# Step 2: determine if the month is a valid entry
+# Step 3: determine the number of days based on the month and year submitted
+# Step 4: determine if the year is a leap year
 #   and if so, assign the number of days for February at 29
-# Step 2: determine if the year falls within the range 1880-2280, inclusive
-# Step 3: determine if the month is a valid entry
-# Step 4: determine the number of days based on the month and year submitted
 # Step 5: determine if the day submitted falls within that determined range
-# Step 6: determine if all 3 factors are true, given the set of parameters
 
 def valid_date?(month, day, year)
   year_valid(year) &&
@@ -15,17 +14,17 @@ def valid_date?(month, day, year)
   day_valid(day)
 end
 
-# Step : determine if the year falls within the range 1880-2280, inclusive
+# Step 1: determine if the year falls within the range 1880-2280, inclusive
 def year_valid(year)
   if year > 1879 && year < 2281
 end
 
-# Step : determine if the month is a valid entry
+# Step 2: determine if the month is a valid entry
 def month_valid(month)
   month > 0 && month < 13
 end
 
-# Step : determine the number of days based on the month and year submitted
+# Step 3: determine the number of days based on the month and year submitted
 
 def month_days(month, year)
   month_days = {
@@ -47,7 +46,7 @@ def month_days(month, year)
   month_days[month]
 end
 
-# Step : determine if the year is a leap year,
+# Step 4: determine if the year is a leap year,
 # and if so, assign the number of days for February at 29
 
 def february(year)
@@ -57,7 +56,7 @@ def february(year)
     february = 28
 end
 
-# Step : determine if the day submitted falls within that determined range
+# Step 5: determine if the day submitted falls within that determined range
 def day_valid(day, month_days)
   day > 0 && day <= month_days
 end
